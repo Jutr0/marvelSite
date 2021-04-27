@@ -14,21 +14,25 @@ const params = {
   limit: 20,
   offset: 0,
   orderBy: "name",
-}
+};
 
 class App extends Component {
   render() {
-    return ([
-        <Link key="linkToHome" to="/"><div className="navBar"><h1 id="homeButton">HOME</h1></div></Link>,
+    return [
+      <Link key="linkToHome" to="/">
+        <div className="navBarMain">
+          <h1 id="homeButton">HOME</h1>
+        </div>
+      </Link>,
       <div className="container" key="container">
-        <Router> 
+        <Router>
           <NotFound default />
-          <SearchParams path="/" params={params}/>
+          <SearchParams path="/" params={params} />
           <Details path="/details/:detailsId" params={params} />
         </Router>
-      </div>
-    ]);
-    }
+      </div>,
+    ];
+  }
 }
 
 export default App;

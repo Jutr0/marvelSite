@@ -2,14 +2,7 @@
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-.navBar{
-  width:100vw;
-  min-height:50px; 
-  background-color: #222;
-  color:#eee;
+  box-sizing: border-box;
 }
 
 body {
@@ -20,9 +13,55 @@ body {
   width: 0;
 }
 
+.navBar {
+  width: 100vw;
+  min-height: 150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #222;
+  text-transform: uppercase;
+  -webkit-box-shadow: 0px 14px 40px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 14px 40px 25px rgba(0, 0, 0, 0.2);
+}
+
+.navBar h1 {
+  color: #eee;
+  font-size: 4rem;
+}
+
+.displayList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin: 50px;
+}
+
+.displayList span {
+  display: block;
+  min-width: 200px;
+  margin: 20px 50px;
+  color: #222;
+  font-size: 1.2rem;
+}
+
 #container {
-  background: #fff700;
-  background: linear-gradient(165deg, #fff700 0%, rgba(255, 249, 83, 0.797) 100%);
+  background: #fff;
+  font-family: "Ubuntu", sans-serif;
 }
 
 .deciption {
@@ -34,12 +73,12 @@ body {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-shadow: 0px 14px 48px 22px rgba(0, 0, 0, 0.3), inset 0px -50px 50px -30px rgba(255, 132, 132, 0.521);
-          box-shadow: 0px 14px 48px 22px rgba(0, 0, 0, 0.3), inset 0px -50px 50px -30px rgba(255, 132, 132, 0.521);
+  justify-content: space-around;
+  -webkit-box-shadow: 0px 14px 40px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 14px 40px 25px rgba(0, 0, 0, 0.2);
   position: relative;
   z-index: 10;
 }
@@ -52,10 +91,9 @@ body {
 
 .deciption .detailsDescription {
   -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  -ms-grid-row-align: center;
+  align-self: center;
   color: #fffdf0;
-  font-family: 'Ubuntu', sans-serif;
   font-size: 1.4rem;
   line-height: 30px;
   min-width: 200px;
@@ -70,11 +108,11 @@ body {
   .deciption {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-flow: column wrap;
-            flex-flow: column wrap;
+    -ms-flex-flow: column wrap;
+    flex-flow: column wrap;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
   }
   .deciption .detailsDescription {
     margin-left: 0;
@@ -89,27 +127,36 @@ body {
   }
 }
 
-.comicsSection {
-  height: 100vh;
-  z-index: 9;
+.section {
+  min-height: 600px;
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-shadow: 0px 14px 40px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 14px 40px 25px rgba(0, 0, 0, 0.2);
+}
+
+.comicsSection {
+  z-index: 9;
 }
 
 .storiesSection {
-  height: 100vh;
-  z-index: 9;
-  position: relative;
+  z-index: 8;
 }
 
 .eventsSection {
-  z-index: 8;
-  height: 100vh;
-  position: relative;
+  z-index: 7;
 }
 
 .commentsSection {
-  z-index: 7;
-  height: 100vh;
-  position: relative;
+  z-index: 6;
 }
 /*# sourceMappingURL=style.css.map */
