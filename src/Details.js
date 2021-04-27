@@ -1,6 +1,8 @@
 import { Redirect, redirectTo } from "@reach/router";
 import { useEffect, useState } from "react";
 import Comics from "./Comics";
+import Events from "./Events";
+import Stories from "./Stories";
 import "./style.css";
 const axios = require("axios");
 
@@ -52,7 +54,7 @@ const Details = (props) => {
     } = character;
     return (
       <div id="container">
-        <div class="deciption">
+        <div className="deciption">
           <img src={`${thumbnail.path}.${thumbnail.extension}`} alt={name} />
           <div className="detailsDescription">
             <h1>{name}</h1>
@@ -62,19 +64,9 @@ const Details = (props) => {
             {description}
           </div>
         </div>
-        <Comics />
-        <div className="storiesSection section">
-          <div className="navBar">
-            <h1>STORIES</h1>
-          </div>
-          <div className="storiesList displayList"></div>
-        </div>
-        <div className="eventsSection section">
-          <div className="navBar">
-            <h1>events</h1>
-          </div>
-          <div className="eventsList displayList"></div>
-        </div>
+        <Comics comics={comics.items}/>
+        <Stories stories={stories.items}/>
+        <Events events={events.items}/>
         <div className="commentsSection section">
           <div className="navBar">
             <h1>comments</h1>
