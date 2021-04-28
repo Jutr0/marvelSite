@@ -1,0 +1,204 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+#container {
+  background: #fff;
+  font-family: 'Ubuntu', sans-serif;
+  min-height: calc(100vh - 50px);
+}
+
+.searchBar {
+  width: 100vw;
+  min-height: 50px;
+  background-color: #222;
+  color: #eee;
+  position: -webkit-sticky;
+  position: sticky;
+  top: -1px;
+}
+
+.searchBar form {
+  width: 100%;
+  min-height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.searchBar form label {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.searchBar form input {
+  color: #eee;
+  font-size: 1.2rem;
+  height: 40px;
+  background-color: transparent;
+  border: 2px #eee solid;
+  border-radius: 5px;
+  padding-left: 10px;
+  margin-left: 10px;
+}
+
+.searchBar form input:focus {
+  outline: none;
+  background-color: #191919;
+}
+
+.searchBar form button {
+  width: 100px;
+  height: 40px;
+  background-color: transparent;
+  border: 2px #eee solid;
+  border-radius: 5px;
+  color: #eee;
+  font-size: 1.2rem;
+}
+
+.searchBar form button:focus {
+  outline: none;
+}
+
+.searchBar form button:hover {
+  cursor: pointer;
+  background-color: #eee;
+  color: #222;
+}
+
+.searchBar form select {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  color: #eee;
+  height: 40px;
+  border: 2px #eee solid;
+  border-radius: 5px;
+  background-color: #222;
+  padding: 5px;
+  margin-left: 10px;
+  font-size: 1.1rem;
+}
+
+.searchBar form select:focus {
+  outline: none;
+}
+
+@media only screen and (max-width: 850px) {
+  #container {
+    min-height: calc(100vh - 100px) !important;
+  }
+  .searchBar {
+    position: inherit;
+  }
+  .searchBar form {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-align: baseline;
+        -ms-flex-align: baseline;
+            align-items: baseline;
+  }
+  .searchBar label {
+    margin: 10px;
+  }
+  .searchBar button {
+    -webkit-box-flex: 100%;
+        -ms-flex: 100%;
+            flex: 100%;
+    margin: 10px;
+  }
+  .searchBar #use-dropdown-page-label {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    background-color: #222;
+    border-radius: 10px;
+    padding: 10px;
+  }
+}
+
+.results {
+  padding-top: 100px;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.results .result {
+  min-width: 500px;
+  min-height: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 0 50px 0;
+  margin-top: 50px;
+  border-bottom: 1px #222 solid;
+}
+
+.results .result .resultImg {
+  min-width: 200px;
+  min-height: 200px;
+  background: url("http://i.annihil.us/u/prod/marvel/i/mg/9/c0/527bb7b37ff55.jpg");
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+}
+
+.results .result .resultName {
+  margin-left: 30px;
+  width: 300px;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bolder;
+}
+
+@media only screen and (max-width: 670px) {
+  .result {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    min-width: 300px !important;
+    width: 90%;
+  }
+  .result .resultName {
+    margin: 50px 0 0 0;
+    min-width: 100px;
+    max-width: 300px;
+    width: 100%;
+  }
+}
+/*# sourceMappingURL=main.css.map */

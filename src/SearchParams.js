@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Character from "./Character";
 import useDropdown from "./useDropdown";
 import { Link } from "@reach/router";
+import "./main.css";
 
 const axios = require("axios");
 
@@ -11,7 +12,7 @@ const SearchParams = (props) => {
   const [characters, setCharacters] = useState([]);
   const [name, setName] = useState("");
   const [orderBy, OrderByDropdown] = useDropdown(
-    "Order By: ",
+    "Order By ",
     "Name Ascending",
     [
       "Name Ascending",
@@ -21,7 +22,7 @@ const SearchParams = (props) => {
     ]
   );
   const [pages, setPages] = useState([]);
-  const [page, PageDropdown, updatePage] = useDropdown("Page: ", "1", pages);
+  const [page, PageDropdown, updatePage] = useDropdown("Page ", "1", pages);
 
   let loadCharacters;
   let loading = true;
@@ -115,11 +116,12 @@ const SearchParams = (props) => {
   }
 
   return (
-    <div className="container">
-      <div className="searchParams">
+    <div id="container">
+      <div className="searchBar">
         <form>
+        <PageDropdown />
           <label htmlFor="name">
-            Name:
+            Name 
             <input
               id="name"
               placeholder="Name"
@@ -161,9 +163,10 @@ const SearchParams = (props) => {
             Search
           </button>
         </form>
-        <PageDropdown />
       </div>
+      <div className="results">
       {loadCharacters}
+      </div>
     </div>
   );
 };

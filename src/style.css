@@ -171,4 +171,81 @@ body {
 .commentsSection {
   z-index: 6;
 }
+
+.commentsSection .addCommentContainer {
+  margin-top: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-width: 500px;
+  width: 800px;
+  min-height: 75px;
+  padding-bottom: 10px;
+  border-bottom: 1px #222 solid;
+}
+
+.commentsSection .addCommentContainer .addCommentImg {
+  background-image: url("http://i.annihil.us/u/prod/marvel/i/mg/9/c0/527bb7b37ff55.jpg");
+  background-size: cover;
+  background-position: center;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.commentsSection .addCommentContainer form {
+  width: 700px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.commentsSection .addCommentContainer form .addCommentTextarea {
+  resize: none;
+  width: 80%;
+  padding: 15px 0px 3px 0px;
+  font-size: 1.2rem;
+  border: none;
+  border-bottom: 1px #222 dashed;
+}
+
+.commentsSection .addCommentContainer form .addCommentTextarea:focus {
+  outline: none;
+}
+
+.commentsSection .addCommentContainer form .addCommentBtn {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  margin-left: 20px;
+  -webkit-transform: translateY(0px);
+          transform: translateY(0px);
+  height: 30px;
+  width: 100px;
+  background: none;
+  border: 4px transparent solid;
+  border-radius: 3px;
+  background: #7e0000;
+  color: #eee;
+  font-size: 90%;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.commentsSection .addCommentContainer form .addCommentBtn:focus {
+  outline: none;
+}
+
+.commentsSection .addCommentContainer form .addCommentBtn:hover {
+  cursor: pointer;
+  background: #eee;
+  border-color: #7e0000;
+  color: #7e0000;
+}
 /*# sourceMappingURL=style.css.map */
