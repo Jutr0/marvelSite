@@ -119,9 +119,9 @@ const SearchParams = (props) => {
     <div id="container">
       <div className="searchBar">
         <form>
-        <PageDropdown />
+          <PageDropdown />
           <label htmlFor="name">
-            Name 
+            Name
             <input
               id="name"
               placeholder="Name"
@@ -164,9 +164,7 @@ const SearchParams = (props) => {
           </button>
         </form>
       </div>
-      <div className="results">
-      {loadCharacters}
-      </div>
+      <div className="results">{loadCharacters}</div>
     </div>
   );
 };

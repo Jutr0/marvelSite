@@ -1,6 +1,7 @@
 import { Redirect, redirectTo } from "@reach/router";
 import { useEffect, useState } from "react";
 import Comics from "./Comics";
+import Comments from "./Comments";
 import Events from "./Events";
 import Stories from "./Stories";
 import "./style.css";
@@ -64,14 +65,10 @@ const Details = (props) => {
             {description}
           </div>
         </div>
-        <Comics comics={comics.items}/>
-        <Stories stories={stories.items}/>
-        <Events events={events.items}/>
-        <div className="commentsSection section">
-          <div className="navBar">
-            <h1>comments</h1>
-          </div>
-        </div>
+        <Comics comics={comics.items} />
+        <Stories stories={stories.items} />
+        <Events events={events.items} />
+        <Comments/>
       </div>
     );
   }
