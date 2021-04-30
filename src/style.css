@@ -214,6 +214,8 @@ body {
   font-size: 1.2rem;
   border: none;
   border-bottom: 1px #222 dashed;
+  max-height:100px;
+  height: 40px;
 }
 
 .commentsSection .addCommentContainer form .addCommentTextarea:focus {
@@ -277,14 +279,15 @@ body {
 }
 
 @media only screen and (max-width: 550px) {
-  .addCommentContainer {
-    width: 400px !important;
+  .commentsSection .addCommentContainer {
+    min-width: 100px;
+    width: 90% !important;
   }
-  .addCommentContainer form {
-    width: 325px !important;
+  .commentsSection .addCommentContainer form {
+    width: 70% !important;
   }
-  .comments {
-    width: 400px !important;
+  .commentsSection .comments {
+    width: 90% !important;
   }
 }
 /*# sourceMappingURL=style.css.map */
