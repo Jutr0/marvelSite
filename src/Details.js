@@ -1,4 +1,3 @@
-import { Redirect, redirectTo } from "@reach/router";
 import { useEffect, useState } from "react";
 import Comics from "./Comics";
 import Comments from "./Comments";
@@ -34,6 +33,7 @@ const Details = (props) => {
       .then(() => {
         setLoading(false);
       });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (loading) {
@@ -47,11 +47,7 @@ const Details = (props) => {
       comics,
       description,
       events,
-      id,
-      modified,
-      series,
       stories,
-      urls,
     } = character;
     return (
       <div id="container">

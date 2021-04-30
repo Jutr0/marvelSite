@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Character from "./Character";
 import useDropdown from "./useDropdown";
-import { Link } from "@reach/router";
 import "./main.css";
 
 const axios = require("axios");
@@ -25,10 +24,11 @@ const SearchParams = (props) => {
   const [page, PageDropdown, updatePage] = useDropdown("Page ", "1", pages);
 
   let loadCharacters;
-  let loading = true;
+  const loading = useRef(true); 
+  //let loading = true;
 
   useEffect(() => {
-    loading = true;
+    loading.current = true;
     setCharacters(null);
     axios
       .get("http://gateway.marvel.com/v1/public/characters", {
@@ -48,6 +48,7 @@ const SearchParams = (props) => {
 
   useEffect(() => {
     updatePage("1");
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params.nameStartsWith]);
 
   useEffect(() => {
@@ -66,10 +67,11 @@ const SearchParams = (props) => {
         order = "name";
     }
     setParams({ ...params, ...{ orderBy: order } });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [orderBy]);
 
   useEffect(() => {
-    loading = true;
+    loading.current = true;
     if (response !== null) {
       const totalCharacters = response.data.data.total;
       let pages = parseInt(totalCharacters / params.limit);
@@ -87,14 +89,15 @@ const SearchParams = (props) => {
   }, [response, params.limit]);
 
   useEffect(() => {
-    loading = true;
+    loading.current = true;
 
     const offset = (page - 1) * params.limit;
     setParams({ ...params, ...{ offset: offset } });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 
   if (characters !== null && characters.length > 0) {
-    loading = false;
+    loading.current = false;
 
     loadCharacters = characters.map((step) => {
       return (
@@ -108,7 +111,7 @@ const SearchParams = (props) => {
       );
     });
   } else if (characters !== null && characters.length === 0) {
-    loading = false;
+    loading.current = false;
     loadCharacters = <h1>Not Found</h1>;
   }
   if (loading === true) {

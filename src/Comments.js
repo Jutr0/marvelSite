@@ -15,24 +15,24 @@ const Comments = () => {
     }
 
   return (
-    <div class="commentsSection section">
-    <div class="navBar"><h1>comments</h1></div>
-    <div class="addCommentContainer">
-      <div class="addCommentImg"></div>
+    <div className="commentsSection section">
+    <div className="navBar"><h1>comments</h1></div>
+    <div className="addCommentContainer">
+      <div className="addCommentImg"></div>
       <form>
         <textarea
-          class="addCommentTextarea"
-          maxlength="100"
+          className="addCommentTextarea"
+          maxLength="100"
           value={comment}
           rows="1"
           placeholder="Add Public Comment..."
           onChange={e=>setComment(e.target.value)}
           onBlur={e=>setComment(e.target.value)}
         ></textarea>
-        <button class="addCommentBtn" onClick={(e)=>{e.preventDefault();addComment()}}>Comment</button>
+        <button className="addCommentBtn" onClick={(e)=>{e.preventDefault();addComment()}}>Comment</button>
       </form>
     </div>
-    <div class="comments">
+    <div className="comments">
         {commentsToRender}
     </div>
   </div>

@@ -1,11 +1,9 @@
-import { Component, useEffect } from "react";
+import { Component } from "react";
 import { Link, Router } from "@reach/router";
 
 import Details from "./Details";
 import SearchParams from "./SearchParams";
 import NotFound from "./NotFound";
-
-const axios = require("axios");
 
 const params = {
   ts: 1,
