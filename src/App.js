@@ -4,6 +4,7 @@ import { Link, Router } from "@reach/router";
 import Details from "./Details";
 import SearchParams from "./SearchParams";
 import NotFound from "./NotFound";
+import Authentication from "./Authentication";
 
 const params = {
   ts: 1,
@@ -17,11 +18,12 @@ const params = {
 class App extends Component {
   render() {
     return [
-      <Link key="linkToHome" to="/">
-        <div className="navBarMain">
+      <div className="navBarMain">
+        <Link key="linkToHome" to="/">
           <h1 id="homeButton">HOME</h1>
-        </div>
-      </Link>,
+        </Link>
+        <Authentication />
+      </div>,
       <div className="container" key="container">
         <Router>
           <NotFound default />

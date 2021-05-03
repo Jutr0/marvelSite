@@ -24,7 +24,7 @@ const SearchParams = (props) => {
   const [page, PageDropdown, updatePage] = useDropdown("Page ", "1", pages);
 
   let loadCharacters;
-  const loading = useRef(true); 
+  const loading = useRef(true);
   //let loading = true;
 
   useEffect(() => {
@@ -48,7 +48,7 @@ const SearchParams = (props) => {
 
   useEffect(() => {
     updatePage("1");
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params.nameStartsWith]);
 
   useEffect(() => {
@@ -67,7 +67,7 @@ const SearchParams = (props) => {
         order = "name";
     }
     setParams({ ...params, ...{ orderBy: order } });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [orderBy]);
 
   useEffect(() => {
@@ -93,7 +93,7 @@ const SearchParams = (props) => {
 
     const offset = (page - 1) * params.limit;
     setParams({ ...params, ...{ offset: offset } });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 
   if (characters !== null && characters.length > 0) {

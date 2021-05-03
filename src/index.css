@@ -29,8 +29,22 @@ a {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+}
+.navBarMain  a {
   color: #eee;
 }
-.navBarMain > h1 {
+.navBarMain > a > h1 {
   margin-left: 50px;
+}
+.authenticationButtons{
+  display: flex;
+  position: absolute;
+  right:20px;
+}
+.authenticationButtons h2{
+  margin:0 10px;
+  border:2px white solid;
+  border-top: none;
+  border-bottom: none;
+  padding: 5px 10px;
 }
