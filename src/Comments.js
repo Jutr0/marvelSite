@@ -1,24 +1,48 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { collection, addDoc, where, onSnapshot, query, orderBy } from 'firebase/firestore';
+
+import { collectIdsAndDocs } from './utilities';
 import Comment from "./Comment";
+import {firebaseApp, db} from "./firebase";
 
-import {firestore} from "./firebase";
-
-const Comments = () => {
+const Comments = (props) => {
   const [comment, setComment] = useState("");
-  const [comments, setComments] = useState([]);
-  const [commentsToRender, setCommentsToRender] = useState([]);
+  const [comments, setComments] = useState(true);
 
-  const addComment = (_) => {
-    firestore.collection('comments').add({comment});
-    const tempComments = [...comments, comment];
-    const tempCommentsToRender = tempComments.map((step) => (
-      <Comment description={step} uid={0} />
-    ));
-    setComments(tempComments);
-    setCommentsToRender(tempCommentsToRender);
-    setComment("");
+  useEffect(_ => {
+    const q = query(collection(db, "comments"), orderBy("createdAt", "desc"), where("character", "==" , +props.id));
+    const unsubscribe = onSnapshot(q, snapshot => {
+      const tempComments = snapshot.docs.map(collectIdsAndDocs).map((step)=>{
+        return <Comment description={step.description} uid={step.uid}/>
+      });
+      
+      setComments(tempComments);
+    })
+
+    return() => {unsubscribe()}
+  },[])
+
+  const addComment = async (_) => {
+    try{
+      const tempComment = comment;
+      setComment("");
+      const docRef = await addDoc(collection(db,"comments"), {
+        description:tempComment,
+        uid: 1,
+        displayName: "Wiktor Kiełczewski",
+        likes: 0,
+        comments:0,
+        userImage:null,
+        createdAt: new Date().toISOString(),
+        character: +props.id,
+      });
+      console.log("Document written with ID: ", docRef.id);
+    }catch(e){
+      console.error("Error adding document: ", e);
+    }
+
   };
-
+  console.log("before render",{comments})
   return (
     <div className="commentsSection section">
       <div className="navBar">
@@ -47,7 +71,7 @@ const Comments = () => {
           </button>
         </form>
       </div>
-      <div className="comments">{commentsToRender}</div>
+      <div className="comments">{comments}</div>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-export default Comment = (props) => {
+const Comment = (props) => {
   const uid = props.uid;
 
   return (
@@ -23,3 +23,5 @@ export default Comment = (props) => {
     </div>
   );
 };
+
+export default Comment;
