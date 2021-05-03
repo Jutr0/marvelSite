@@ -5,6 +5,7 @@ import Details from "./Details";
 import SearchParams from "./SearchParams";
 import NotFound from "./NotFound";
 import Authentication from "./Authentication";
+import { LogInPage } from "./LogIn";
 
 const params = {
   ts: 1,
@@ -14,23 +15,24 @@ const params = {
   offset: 0,
   orderBy: "name",
 };
-
 class App extends Component {
+
   render() {
     return [
       <div className="navBarMain">
         <Link key="linkToHome" to="/">
-          <h1 id="homeButton">HOME</h1>
+          <h1 id="homeButton">HOME</h1> 
         </Link>
         <Authentication />
       </div>,
       <div className="container" key="container">
         <Router>
           <NotFound default />
+          <LogInPage path="/login"/>
           <SearchParams path="/" params={params} />
           <Details path="/details/:detailsId" params={params} />
         </Router>
-      </div>,
+      </div>
     ];
   }
 }

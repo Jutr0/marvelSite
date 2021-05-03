@@ -3,24 +3,28 @@ import { collection, addDoc, where, onSnapshot, query, orderBy } from 'firebase/
 
 import { collectIdsAndDocs } from './utilities';
 import Comment from "./Comment";
-import {firebaseApp, db} from "./firebase";
+import {auth, db} from "./firebase";
 
 const Comments = (props) => {
   const [comment, setComment] = useState("");
   const [comments, setComments] = useState(true);
 
+
   useEffect(_ => {
+    
     const q = query(collection(db, "comments"), orderBy("createdAt", "desc"), where("character", "==" , +props.id));
     const unsubscribe = onSnapshot(q, snapshot => {
       const tempComments = snapshot.docs.map(collectIdsAndDocs).map((step)=>{
-        return <Comment description={step.description} uid={step.uid}/>
+        return <Comment {...step }/>
       });
       
       setComments(tempComments);
     })
-
+    
     return() => {unsubscribe()}
   },[])
+
+
 
   const addComment = async (_) => {
     try{
@@ -28,28 +32,28 @@ const Comments = (props) => {
       setComment("");
       const docRef = await addDoc(collection(db,"comments"), {
         description:tempComment,
-        uid: 1,
-        displayName: "Wiktor Kiełczewski",
+        uid: auth.currentUser.uid,
+        displayName: auth.currentUser.displayName,
         likes: 0,
         comments:0,
-        userImage:null,
+        userImage:auth.currentUser.photoURL,
         createdAt: new Date().toISOString(),
         character: +props.id,
       });
-      console.log("Document written with ID: ", docRef.id);
     }catch(e){
       console.error("Error adding document: ", e);
     }
 
   };
-  console.log("before render",{comments})
+
   return (
     <div className="commentsSection section">
       <div className="navBar">
         <h1>comments</h1>
       </div>
       <div className="addCommentContainer">
-        <div className="addCommentImg"></div>
+        <div className="addCommentImg" style={{backgroundImage:`url(${auth.currentUser!==null ? auth.currentUser.photoURL:'https://via.placeholder.com/150'})`,
+ backgroundColor:"white"}}></div>
         <form>
           <textarea
             className="addCommentTextarea"

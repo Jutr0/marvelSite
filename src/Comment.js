@@ -1,6 +1,5 @@
 const Comment = (props) => {
-  const uid = props.uid;
-
+  const {uid,description,displayName,userImage} = props;
   return (
     <div className="comment">
       <div className="commentUserProfile">
@@ -8,12 +7,13 @@ const Comment = (props) => {
           className="commentImg"
           style={{
             backgroundImage:
-              "url(http://i.annihil.us/u/prod/marvel/i/mg/9/c0/527bb7b37ff55.jpg)",
+              `url(${userImage ? userImage:'https://via.placeholder.com/150'})`,
+              backgroundColor:"white"
           }}
         ></div>
-        <span>Wiktor Kiełczewski</span>
+        <span>{displayName}</span>
       </div>
-      <span className="commentText">{props.description}</span>
+      <span className="commentText">{description}</span>
       <div className="commentBtns">
         <span>2</span>
         <button>&#128151;</button>
