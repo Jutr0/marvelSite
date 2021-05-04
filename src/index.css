@@ -30,20 +30,20 @@ a {
   align-items: center;
   justify-content: flex-start;
 }
-.navBarMain  a {
+.navBarMain a {
   color: #eee;
 }
 .navBarMain > a > h1 {
   margin-left: 50px;
 }
-.authenticationButtons{
+.authenticationButtons {
   display: flex;
   position: absolute;
-  right:20px;
+  right: 20px;
 }
-.authenticationButtons h2{
-  margin:0 10px;
-  border:2px white solid;
+.authenticationButtons h2 {
+  margin: 0 10px;
+  border: 2px white solid;
   border-top: none;
   border-bottom: none;
   padding: 5px 10px;

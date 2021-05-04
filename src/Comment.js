@@ -1,14 +1,15 @@
 const Comment = (props) => {
-  const {uid,description,displayName,userImage} = props;
+  const { uid, description, displayName, userImage } = props;
   return (
     <div className="comment">
       <div className="commentUserProfile">
         <div
           className="commentImg"
           style={{
-            backgroundImage:
-              `url(${userImage ? userImage:'https://via.placeholder.com/150'})`,
-              backgroundColor:"white"
+            backgroundImage: `url(${
+              userImage ? userImage : "https://via.placeholder.com/150"
+            })`,
+            backgroundColor: "white",
           }}
         ></div>
         <span>{displayName}</span>

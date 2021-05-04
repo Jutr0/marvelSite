@@ -1,7 +1,6 @@
 import { Link } from "@reach/router";
 
-import { signInWithGoogle } from './firebase';
-
+import { signInWithGoogle } from "./firebase";
 
 const LogIn = () => {
   return (
@@ -12,10 +11,6 @@ const LogIn = () => {
 };
 export default LogIn;
 
-
-
 export const LogInPage = () => {
-  return(
-    <button onClick={signInWithGoogle}>Log in via Google</button>
-  )
-}
+  return <button onClick={signInWithGoogle}>Log in via Google</button>;
+};
