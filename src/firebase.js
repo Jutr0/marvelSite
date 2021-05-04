@@ -52,18 +52,13 @@ export const createUserProfileDocument = async (user, additionalData) => {
   return getUserDocument(user.uid);
 };
 
-
 export const getUserDocument = async (uid) => {
+  if (!uid) return null;
+  try {
+    const userDocument = await getDoc(doc(db, "users", uid));
 
-  if(!uid) return null;
-  try{
-      const userDocument = await getDoc(doc(db,"users",uid))
-
-    return {uid, ...userDocument.data()};
-  }catch(e){
+    return { uid, ...userDocument.data() };
+  } catch (e) {
     console.error(e);
   }
-
-
-
-}
+};
