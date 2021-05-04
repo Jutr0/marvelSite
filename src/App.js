@@ -4,6 +4,9 @@ import { Link, Router } from "@reach/router";
 import Details from "./Details";
 import SearchParams from "./SearchParams";
 import NotFound from "./NotFound";
+import Authentication from "./Authentication";
+import { LogInPage } from "./LogIn";
+import { auth, createUserProfileDocument } from "./firebase";
 
 const params = {
   ts: 1,
@@ -13,18 +16,37 @@ const params = {
   offset: 0,
   orderBy: "name",
 };
-
 class App extends Component {
+  state = {
+    user: null,
+    loading: true,
+  };
+
+  unsubscribeFromAuth = null;
+
+  componentDidMount = async () => {
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
+      const user = await createUserProfileDocument(userAuth);
+      this.setState({ user, loading: false });
+      //console.log("app user: ", { user });
+    });
+  };
+  componentWillUnmount = () => {
+    this.unsubscribeFromAuth();
+  };
+
   render() {
     return [
-      <Link key="linkToHome" to="/">
-        <div className="navBarMain">
+      <div className="navBarMain">
+        <Link key="linkToHome" to="/">
           <h1 id="homeButton">HOME</h1>
-        </div>
-      </Link>,
+        </Link>
+        <Authentication user={this.state.user} />
+      </div>,
       <div className="container" key="container">
         <Router>
           <NotFound default />
+          <LogInPage path="/login" />
           <SearchParams path="/" params={params} />
           <Details path="/details/:detailsId" params={params} />
         </Router>

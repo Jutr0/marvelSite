@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
@@ -20,15 +20,15 @@ body {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   background-color: #222;
   text-transform: uppercase;
   -webkit-box-shadow: 0px 14px 40px 25px rgba(0, 0, 0, 0.2);
-          box-shadow: 0px 14px 40px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 14px 40px 25px rgba(0, 0, 0, 0.2);
 }
 
 .navBar h1 {
@@ -41,21 +41,21 @@ body {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   margin: 50px;
 }
 
 .displayList span {
   display: block;
   -webkit-box-flex: 25%;
-      -ms-flex: 25%;
-          flex: 25%;
+  -ms-flex: 25%;
+  flex: 25%;
   margin: 10px 50px;
   color: #222;
   font-size: 1.2rem;
@@ -68,7 +68,7 @@ body {
 
 #container {
   background: #fff;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
 }
 
 .deciption {
@@ -80,12 +80,12 @@ body {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
   -webkit-box-shadow: 0px 14px 40px 25px rgba(0, 0, 0, 0.2);
-          box-shadow: 0px 14px 40px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 14px 40px 25px rgba(0, 0, 0, 0.2);
   position: relative;
   z-index: 10;
 }
@@ -98,8 +98,8 @@ body {
 
 .deciption .detailsDescription {
   -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  -ms-grid-row-align: center;
+  align-self: center;
   color: #fffdf0;
   font-size: 1.4rem;
   line-height: 30px;
@@ -115,11 +115,11 @@ body {
   .deciption {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-flow: column wrap;
-            flex-flow: column wrap;
+    -ms-flex-flow: column wrap;
+    flex-flow: column wrap;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
   }
   .deciption .detailsDescription {
     margin-left: 0;
@@ -127,8 +127,8 @@ body {
   }
   .displayList span {
     -webkit-box-flex: 100%;
-        -ms-flex: 100%;
-            flex: 100%;
+    -ms-flex: 100%;
+    flex: 100%;
   }
 }
 
@@ -139,6 +139,10 @@ body {
   }
 }
 
+button:focus {
+  outline: none;
+}
+
 .section {
   min-height: 600px;
   position: relative;
@@ -146,14 +150,14 @@ body {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-shadow: 0px 14px 40px 25px rgba(0, 0, 0, 0.2);
-          box-shadow: 0px 14px 40px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 14px 40px 25px rgba(0, 0, 0, 0.2);
 }
 
 .comicsSection {
@@ -178,11 +182,11 @@ body {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   min-width: 500px;
   width: 800px;
   min-height: 75px;
@@ -214,8 +218,6 @@ body {
   font-size: 1.2rem;
   border: none;
   border-bottom: 1px #222 dashed;
-  max-height:100px;
-  height: 40px;
 }
 
 .commentsSection .addCommentContainer form .addCommentTextarea:focus {
@@ -224,10 +226,10 @@ body {
 
 .commentsSection .addCommentContainer form .addCommentBtn {
   -ms-flex-item-align: end;
-      align-self: flex-end;
+  align-self: flex-end;
   margin-left: 20px;
   -webkit-transform: translateY(0px);
-          transform: translateY(0px);
+  transform: translateY(0px);
   height: 30px;
   width: 100px;
   background: none;
@@ -256,7 +258,7 @@ body {
   margin-top: 30px;
 }
 
-.commentsSection .comments .comment {
+.comment {
   width: 100%;
   padding: 10px 10px;
   margin: 20px 0;
@@ -264,6 +266,71 @@ body {
   font-size: 1.1rem;
   border: 1px #222 solid;
   border-radius: 5px;
+  margin-bottom: 30px;
+}
+
+.comment .commentUserProfile {
+  position: relative;
+  -webkit-transform: translate(-35px, -25px);
+  transform: translate(-35px, -25px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.comment .commentUserProfile span {
+  background: #fff;
+  padding: 0px 5px;
+  margin: 0 0 0 -5px;
+  z-index: 0;
+}
+
+.comment .commentText {
+  display: block;
+  position: relative;
+  -webkit-transform: translateY(-40px);
+  transform: translateY(-40px);
+  margin: 0 20px 0 30px;
+}
+
+.comment .commentBtns {
+  float: right;
+  position: relative;
+  -webkit-transform: translateY(-25px);
+  transform: translateY(-25px);
+  font-size: large;
+  font-weight: 700;
+}
+
+.comment .commentBtns button {
+  font-size: large;
+  padding: 0 20px;
+  border: none;
+  background: none;
+  color: #eee;
+}
+
+.comment .commentBtns button:hover {
+  opacity: 50%;
+  cursor: pointer;
+}
+
+.comment .commentBtns button:active {
+  opacity: 70%;
+}
+
+.comment .titanic {
+  float: none;
+}
+
+.comment .commentImg {
+  width: 50px;
+  height: 50px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+  z-index: 1;
 }
 
 @media only screen and (max-width: 850px) {

@@ -4,6 +4,7 @@ import Comments from "./Comments";
 import Events from "./Events";
 import Stories from "./Stories";
 import "./style.css";
+
 const axios = require("axios");
 
 const Details = (props) => {
@@ -22,8 +23,8 @@ const Details = (props) => {
         }
       )
       .then((response) => {
-        console.log(response);
-        console.log("detailsResponse");
+        //console.log(response);
+        //console.log("detailsResponse");
         setCharacter(response.data.data.results[0]);
       })
       .catch((error) => {
@@ -33,7 +34,7 @@ const Details = (props) => {
       .then(() => {
         setLoading(false);
       });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (loading) {
@@ -41,14 +42,7 @@ const Details = (props) => {
   } else if (character === {}) {
     return <h1>Not Found</h1>;
   } else {
-    const {
-      name,
-      thumbnail,
-      comics,
-      description,
-      events,
-      stories,
-    } = character;
+    const { name, thumbnail, comics, description, events, stories } = character;
     return (
       <div id="container">
         <div className="deciption">
@@ -64,7 +58,7 @@ const Details = (props) => {
         <Comics comics={comics.items} />
         <Stories stories={stories.items} />
         <Events events={events.items} />
-        <Comments/>
+        <Comments id={props.detailsId} />
       </div>
     );
   }
