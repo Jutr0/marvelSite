@@ -1,24 +1,20 @@
-import { doc, getDoc, onSnapshot } from '@firebase/firestore';
-import { useEffect, useState } from 'react';
-import { db, likeUpdate } from './firebase';
+import { doc, getDoc, onSnapshot } from "@firebase/firestore";
+import { useEffect, useState } from "react";
+import { db, likeUpdate } from "./firebase";
 
 const Comment = (props) => {
-  const { uid, description, displayName, userImage,id } = props;
+  const { uid, description, displayName, userImage, id } = props;
   const [likes, setLikes] = useState(0);
 
-  useEffect(()=>{
-
-    const unsubscribe = onSnapshot(doc(db,"comments",id), snap=>{
-        const tempLikes = snap.data().likes;
-        setLikes(tempLikes);
-    })
-    return ()=>{
+  useEffect(() => {
+    const unsubscribe = onSnapshot(doc(db, "comments", id), (snap) => {
+      const tempLikes = snap.data().likes;
+      setLikes(tempLikes);
+    });
+    return () => {
       unsubscribe();
     };
-
-  },[]); 
-
-
+  }, []);
 
   return (
     <div className="comment">
@@ -36,8 +32,8 @@ const Comment = (props) => {
       </div>
       <span className="commentText">{description}</span>
       <div className="commentBtns">
-        <span>{likes ? likes: '0'}</span>
-        <button onClick={()=>likeUpdate(id)}>&#128151;</button>
+        <span>{likes ? likes : "0"}</span>
+        <button onClick={() => likeUpdate(id)}>&#128151;</button>
         <button>&#128172;</button>
       </div>
       <div className="titanic"></div>

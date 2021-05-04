@@ -1,5 +1,13 @@
 import { initializeApp } from "firebase/app";
-import { doc, getFirestore, getDoc, collection, setDoc, deleteDoc,addDoc } from "firebase/firestore";
+import {
+  doc,
+  getFirestore,
+  getDoc,
+  collection,
+  setDoc,
+  deleteDoc,
+  addDoc,
+} from "firebase/firestore";
 import {
   GoogleAuthProvider,
   signInWithPopup,
@@ -37,7 +45,7 @@ export const createUserProfileDocument = async (user, additionalData) => {
     const [displayName, email, photoURL] = user;
     const createdAt = new Date().toISOString;
     try {
-      await addDoc(userRef,{
+      await addDoc(userRef, {
         displayName,
         email,
         photoURL,
@@ -63,27 +71,32 @@ export const getUserDocument = async (uid) => {
   }
 };
 
-
 export const likeUpdate = async (commentId) => {
   const uid = await auth.currentUser.uid;
-  if(!uid || !commentId) return null;
-  try{   
-    const docRef =doc(db,"comments",commentId,"userLikes",uid);
+  if (!uid || !commentId) return null;
+  try {
+    const docRef = doc(db, "comments", commentId, "userLikes", uid);
     const snapshot = await getDoc(docRef);
-    const commentRef = doc(db,"comments",commentId);
+    const commentRef = doc(db, "comments", commentId);
     const commentSnapshot = await getDoc(commentRef);
-    if(!snapshot.exists()){
-      await setDoc(doc(db,"comments",commentId,"userLikes",uid),{
+    if (!snapshot.exists()) {
+      await setDoc(doc(db, "comments", commentId, "userLikes", uid), {
         uid,
-      })
-      await setDoc(commentRef,{likes:commentSnapshot.data().likes+1},{merge:true})
-    } 
-    else{
+      });
+      await setDoc(
+        commentRef,
+        { likes: commentSnapshot.data().likes + 1 },
+        { merge: true }
+      );
+    } else {
       await deleteDoc(docRef);
-        await setDoc(commentRef,{likes:commentSnapshot.data().likes-1},{merge:true})
-      }
-    }catch(e){
-      console.error(e);
+      await setDoc(
+        commentRef,
+        { likes: commentSnapshot.data().likes - 1 },
+        { merge: true }
+      );
     }
-
-}
+  } catch (e) {
+    console.error(e);
+  }
+};

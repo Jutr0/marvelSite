@@ -48,7 +48,7 @@ class App extends Component {
           <NotFound default />
           <LogInPage path="/login" />
           <SearchParams path="/" params={params} />
-          <Details path="/details/:detailsId" params={params}  />
+          <Details path="/details/:detailsId" params={params} />
         </Router>
       </div>,
     ];

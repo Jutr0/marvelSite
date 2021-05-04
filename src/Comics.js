@@ -1,5 +1,7 @@
 const Comics = (props) => {
-  const comics = props.comics.map((step) => <span key={step.name}>{step.name}</span>);
+  const comics = props.comics.map((step) => (
+    <span key={step.name}>{step.name}</span>
+  ));
 
   return (
     <div className="comicsSection section">
