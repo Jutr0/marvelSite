@@ -1,5 +1,5 @@
 const Stories = (props) => {
-  const stories = props.stories.map((step) => <span>{step.name}</span>);
+  const stories = props.stories.map((step) => <span key={step.name}>{step.name}</span>);
 
   return (
     <div className="storiesSection section">

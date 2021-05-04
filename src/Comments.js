@@ -24,7 +24,8 @@ const Comments = (props) => {
     );
     const unsubscribe = onSnapshot(q, (snapshot) => {
       const tempComments = snapshot.docs.map(collectIdsAndDocs).map((step) => {
-        return <Comment {...step} />;
+        return <Comment key={step.id} {...step} />;
+        
       });
 
       setComments(tempComments);

@@ -23,8 +23,8 @@ const Details = (props) => {
         }
       )
       .then((response) => {
-        console.log(response);
-        console.log("detailsResponse");
+       //console.log(response);
+        //console.log("detailsResponse");
         setCharacter(response.data.data.results[0]);
       })
       .catch((error) => {

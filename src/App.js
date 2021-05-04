@@ -28,7 +28,7 @@ class App extends Component {
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
       const user = await createUserProfileDocument(userAuth);
       this.setState({ user, loading: false });
-      console.log("app user: ", { user });
+      //console.log("app user: ", { user });
     });
   };
   componentWillUnmount = () => {
@@ -48,7 +48,7 @@ class App extends Component {
           <NotFound default />
           <LogInPage path="/login" />
           <SearchParams path="/" params={params} />
-          <Details path="/details/:detailsId" params={params} />
+          <Details path="/details/:detailsId" params={params}  />
         </Router>
       </div>,
     ];
