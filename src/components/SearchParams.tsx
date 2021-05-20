@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import Character from "./Character";
-import useDropdown from "./utils/useDropdown";
-import { ISearchParams, IApiResponse, ICharacterData, IOrderBy,} from "./utils/customTypes";
-import "./main.css";
+import useDropdown from "../utils/useDropdown";
+import { ISearchParams, IApiResponse, ICharacterData, IOrderBy,} from "../utils/customTypes";
+import "../css//main.css";
 
 const axios = require("axios");
 

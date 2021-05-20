@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { Link } from "@reach/router";
-import "./main.css";
-import {ICharacter} from "./utils/customTypes"
+import "../css/main.css";
+import {ICharacter} from "../utils/customTypes"
 
 class Character extends Component <ICharacter,any>{
 

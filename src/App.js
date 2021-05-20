@@ -2,8 +2,8 @@ import { Component } from "react";
 import { Link, Router } from "@reach/router";
 
 import Details from "./Details";
-import SearchParams from "./SearchParams";
-import NotFound from "./NotFound";
+import SearchParams from "./components/SearchParams";
+import NotFound from "./components/NotFound";
 import Authentication from "./Authentication";
 import { LogInPage } from "./LogIn";
 import { auth, createUserProfileDocument } from "./firebase";

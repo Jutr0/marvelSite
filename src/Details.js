@@ -3,7 +3,7 @@ import Comics from "./Comics";
 import Comments from "./Comments";
 import Events from "./Events";
 import Stories from "./Stories";
-import "./style.css";
+import "./css/style.css";
 
 const axios = require("axios");
 
