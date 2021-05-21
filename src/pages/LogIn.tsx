@@ -1,4 +1,4 @@
-import { Link } from "@reach/router";
+import { Link, RouteComponentProps } from "@reach/router";
 
 import { signInWithGoogle } from "../utils/firebase";
 
@@ -11,6 +11,6 @@ const LogIn = () => {
 };
 export default LogIn;
 
-export const LogInPage = () => {
+export const LogInPage = (props:RouteComponentProps) => {
   return <button onClick={signInWithGoogle}>Log in via Google</button>;
 };

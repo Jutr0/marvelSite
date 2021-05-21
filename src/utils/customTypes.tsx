@@ -67,3 +67,13 @@ export interface ICommentProps{
   id:string;
   uid:string;
 }
+
+export type IUser = {
+
+  uid:UID;
+  displayName?:string;
+  email?:string;
+  photoURL?:string;
+
+}
+export type UID = string;

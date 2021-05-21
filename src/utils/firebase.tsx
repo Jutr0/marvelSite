@@ -13,7 +13,9 @@ import {
   signInWithPopup,
   getAuth,
   signOut,
+  User,
 } from "firebase/auth";
+import { IUser, UID } from "./customTypes";
 
 export const firebaseApp = initializeApp({
   apiKey: "AIzaSyAqe1wm9R99hXRGs121wcWAEixHWkbfClk",
@@ -34,18 +36,18 @@ export const logout = async () => await signOut(auth);
 
 export const db = getFirestore();
 
-export const createUserProfileDocument = async (user, additionalData) => {
-  if (!user) return;
+export const createUserProfileDocument = async (user:User|null, additionalData?: Object) => {
+  if (user === null) return;
 
   const userRef = doc(db, "users", user.uid);
 
   const snapshot = await getDoc(userRef);
 
   if (!snapshot.exists) {
-    const [displayName, email, photoURL] = user;
+    const {displayName, email, photoURL} = user;
     const createdAt = new Date().toISOString;
     try {
-      await addDoc(userRef, {
+      await setDoc(userRef, {
         displayName,
         email,
         photoURL,
@@ -60,7 +62,7 @@ export const createUserProfileDocument = async (user, additionalData) => {
   return getUserDocument(user.uid);
 };
 
-export const getUserDocument = async (uid) => {
+export const getUserDocument = async (uid:UID) => {
   if (!uid) return null;
   try {
     const userDocument = await getDoc(doc(db, "users", uid));
@@ -71,7 +73,9 @@ export const getUserDocument = async (uid) => {
   }
 };
 
-export const likeUpdate = async (commentId) => {
+export const likeUpdate = async (commentId:string) => {
+  if(auth.currentUser !== null){
+
   const uid = await auth.currentUser.uid;
   if (!uid || !commentId) return null;
   try {
@@ -85,18 +89,19 @@ export const likeUpdate = async (commentId) => {
       });
       await setDoc(
         commentRef,
-        { likes: commentSnapshot.data().likes + 1 },
+        { likes: commentSnapshot.data()?.likes + 1 },
         { merge: true }
       );
     } else {
       await deleteDoc(docRef);
       await setDoc(
         commentRef,
-        { likes: commentSnapshot.data().likes - 1 },
+        { likes: commentSnapshot.data()?.likes - 1 },
         { merge: true }
       );
     }
   } catch (e) {
     console.error(e);
   }
+}
 };

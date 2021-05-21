@@ -3,10 +3,11 @@ import Character from "./Character";
 import useDropdown from "../utils/useDropdown";
 import { ISearchParams, IApiResponse, ICharacterData, IOrderBy,} from "../utils/customTypes";
 import "../css//main.css";
+import { RouteComponentProps } from "@reach/router";
 
 const axios = require("axios");
 
-type IProps  = {
+interface IProps extends RouteComponentProps {
   params:ISearchParams;
 }
 

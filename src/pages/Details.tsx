@@ -5,10 +5,16 @@ import Events from "../components/Events";
 import Stories from "../components/Stories";
 import { ISearchParams, IApiResponse, ICharacterData } from "../utils/customTypes";
 import "../css/style.css";
+import { RouteComponentProps } from "@reach/router";
 
 const axios = require("axios");
 
-const Details = (props:{params:ISearchParams, detailsId:number}) => {
+interface IProps extends RouteComponentProps{
+  params:ISearchParams;
+  detailsId?:number;
+}
+
+const Details = (props:IProps) => {
   const [character, setCharacter] = useState<ICharacterData | null>(null);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -59,7 +65,7 @@ const Details = (props:{params:ISearchParams, detailsId:number}) => {
         <Comics comics={comics.items} />
         <Stories stories={stories.items} />
         <Events events={events.items} />
-        <Comments id={props.detailsId} />
+        {props.detailsId!==undefined?<Comments id={props.detailsId} />:null}
       </div>
     );
   }
