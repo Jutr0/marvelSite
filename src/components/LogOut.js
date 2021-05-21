@@ -1,5 +1,5 @@
 import { Link } from "@reach/router";
-import { logout } from "./firebase";
+import { logout } from "../utils/firebase";
 
 const LogOut = () => {
   return (

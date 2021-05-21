@@ -48,14 +48,22 @@ export type ICharacterData = {
   events:IAdditionalInfoResponse;
   stories:IAdditionalInfoResponse;
 }
-type IAdditionalInfoResponse={
+export type IAdditionalInfoResponse={
   available:number;
   collectionURI:string;
   items:IAdditionalData[];
 }
-type IAdditionalData = {
+export type IAdditionalData = {
 
   name:string;
   resourceURI:string;
 
+}
+
+export interface ICommentProps{
+  description:string;
+  displayName:string;
+  userImage:string;
+  id:string;
+  uid:string;
 }

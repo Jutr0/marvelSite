@@ -1,5 +1,5 @@
-import LogIn from "./LogIn";
-import Register from "./Register";
+import LogIn from "../pages/LogIn";
+import Register from "../pages/Register";
 import LogOut from "./LogOut";
 
 const Authentication = ({ user, loading }) => {

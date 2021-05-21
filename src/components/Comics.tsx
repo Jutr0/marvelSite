@@ -1,4 +1,6 @@
-const Comics = (props) => {
+import { IAdditionalData } from "../utils/customTypes";
+
+const Comics = (props:{comics:IAdditionalData[]}) => {
   const comics = props.comics.map((step) => (
     <span key={step.name}>{step.name}</span>
   ));

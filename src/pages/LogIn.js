@@ -1,6 +1,6 @@
 import { Link } from "@reach/router";
 
-import { signInWithGoogle } from "./firebase";
+import { signInWithGoogle } from "../utils/firebase";
 
 const LogIn = () => {
   return (

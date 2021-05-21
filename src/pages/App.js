@@ -2,11 +2,11 @@ import { Component } from "react";
 import { Link, Router } from "@reach/router";
 
 import Details from "./Details";
-import SearchParams from "./components/SearchParams";
-import NotFound from "./components/NotFound";
-import Authentication from "./Authentication";
+import SearchParams from "../components/SearchParams";
+import NotFound from "../components/NotFound";
+import Authentication from "../components/Authentication";
 import { LogInPage } from "./LogIn";
-import { auth, createUserProfileDocument } from "./firebase";
+import { auth, createUserProfileDocument } from "../utils/firebase";
 
 const params = {
   ts: 1,

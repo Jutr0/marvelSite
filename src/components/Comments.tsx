@@ -8,19 +8,19 @@ import {
   orderBy,
 } from "firebase/firestore";
 
-import { collectIdsAndDocs } from "./utilities";
+import { collectIdsAndDocs } from "../utils/utilities";
 import Comment from "./Comment";
-import { auth, db } from "./firebase";
+import { auth, db } from "../utils/firebase";
 
-const Comments = (props) => {
-  const [comment, setComment] = useState("");
-  const [comments, setComments] = useState(true);
+const Comments = (props:{id:number}) => {
+  const [comment, setComment] = useState<string>("");
+  const [comments, setComments] = useState<JSX.Element[] | null>(null);
 
-  useEffect((_) => {
+  useEffect(() => {
     const q = query(
       collection(db, "comments"),
       orderBy("createdAt", "desc"),
-      where("character", "==", +props.id)
+      where("character", "==", + props.id)
     );
     const unsubscribe = onSnapshot(q, (snapshot) => {
       const tempComments = snapshot.docs.map(collectIdsAndDocs).map((step) => {
@@ -35,8 +35,10 @@ const Comments = (props) => {
     };
   }, []);
 
-  const addComment = async (_) => {
+  const addComment = async () => {
     try {
+      if(auth.currentUser !== null){
+        
       const tempComment = comment;
       setComment("");
       const docRef = await addDoc(collection(db, "comments"), {
@@ -49,6 +51,7 @@ const Comments = (props) => {
         createdAt: new Date().toISOString(),
         character: +props.id,
       });
+    }
     } catch (e) {
       console.error("Error adding document: ", e);
     }
@@ -74,9 +77,9 @@ const Comments = (props) => {
         <form>
           <textarea
             className="addCommentTextarea"
-            maxLength="100"
+            maxLength={100}
             value={comment}
-            rows="1"
+            rows={1}
             placeholder="Add Public Comment..."
             onChange={(e) => setComment(e.target.value)}
             onBlur={(e) => setComment(e.target.value)}

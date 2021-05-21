@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
-import Comics from "./Comics";
-import Comments from "./Comments";
-import Events from "./Events";
-import Stories from "./Stories";
-import "./css/style.css";
+import Comics from "../components/Comics";
+import Comments from "../components/Comments";
+import Events from "../components/Events";
+import Stories from "../components/Stories";
+import { ISearchParams, IApiResponse, ICharacterData } from "../utils/customTypes";
+import "../css/style.css";
 
 const axios = require("axios");
 
-const Details = (props) => {
-  const [character, setCharacter] = useState({});
+const Details = (props:{params:ISearchParams, detailsId:number}) => {
+  const [character, setCharacter] = useState<ICharacterData | null>(null);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     axios
@@ -22,12 +23,12 @@ const Details = (props) => {
           },
         }
       )
-      .then((response) => {
+      .then((response:IApiResponse) => {
         //console.log(response);
         //console.log("detailsResponse");
         setCharacter(response.data.data.results[0]);
       })
-      .catch((error) => {
+      .catch((error:Error) => {
         console.log(error);
         console.log("detailsError");
       })
@@ -39,7 +40,7 @@ const Details = (props) => {
 
   if (loading) {
     return <h1>Loading...</h1>;
-  } else if (character === {}) {
+  } else if (character === null ) {
     return <h1>Not Found</h1>;
   } else {
     const { name, thumbnail, comics, description, events, stories } = character;

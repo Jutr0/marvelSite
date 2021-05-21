@@ -1,14 +1,16 @@
 import { doc, getDoc, onSnapshot } from "@firebase/firestore";
 import { useEffect, useState } from "react";
-import { db, likeUpdate } from "./firebase";
+import { ICommentProps } from "../utils/customTypes";
+import { db, likeUpdate } from "../utils/firebase";
+import { DocumentData, FirebaseFirestore } from "firebase/firestore";
 
-const Comment = (props) => {
+const Comment = (props:ICommentProps) => {
   const { uid, description, displayName, userImage, id } = props;
-  const [likes, setLikes] = useState(0);
+  const [likes, setLikes] = useState<number>(0);
 
   useEffect(() => {
-    const unsubscribe = onSnapshot(doc(db, "comments", id), (snap) => {
-      const tempLikes = snap.data().likes;
+    const unsubscribe = onSnapshot(doc(db, "comments", id), (snap:DocumentData) => {
+      const tempLikes:number = snap.data().likes;
       setLikes(tempLikes);
     });
     return () => {

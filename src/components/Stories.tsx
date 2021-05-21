@@ -1,4 +1,6 @@
-const Stories = (props) => {
+import { IAdditionalData } from "../utils/customTypes";
+
+const Stories = (props:{stories:IAdditionalData[]}) => {
   const stories = props.stories.map((step) => (
     <span key={step.name}>{step.name}</span>
   ));

@@ -1,4 +1,6 @@
-const Events = (props) => {
+import { IAdditionalData } from "../utils/customTypes";
+
+const Events = (props:{events:IAdditionalData[]}) => {
   const events = props.events.map((step) => <span>{step.name}</span>);
 
   return (
