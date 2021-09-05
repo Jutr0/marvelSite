@@ -2,6 +2,7 @@
   "name": "marvel-characters",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://Jutr0.github.io/marvelSite",
   "dependencies": {
     "@reach/router": "^1.3.4",
     "@testing-library/jest-dom": "^5.12.0",
@@ -13,6 +14,7 @@
     "@types/react-dom": "^17.0.5",
     "axios": "^0.21.1",
     "firebase": "^9.0.0-beta.1",
+    "gh-pages": "^3.2.3",
     "mysql": "^2.18.1",
     "prettier": "^2.2.1",
     "prop-types": "^15.7.2",
@@ -24,6 +26,8 @@
     "web-vitals": "^1.1.1"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
